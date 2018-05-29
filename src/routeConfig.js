@@ -1,21 +1,14 @@
-import index from '';
-
+import login from 'login.jsx';
+import register from 'register.jsx';
 
 const routeConfig = [
   {
     path: '/',
-    component: App,
-    indexRoute: {component: Dashboard},
-    childRoutes: [
-      {path: 'about', component: About},
-      {
-        path: 'inbox',
-        component: Inbox,
-        childRoutes: [
-          {path: '/messages/:id', component: Message}
-        ]
-      }
-    ]
+    component: login
+  },
+  {
+    path: '/register',
+    component: register
   }
 ];
 
