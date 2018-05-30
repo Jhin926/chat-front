@@ -20,6 +20,7 @@ module.exports = {
     inline: true,
     hot: true
   },
+  mode: 'development',
   plugins: [
     // 通过new一下这个类来使用插件
     new HtmlWebpackPlugin({
