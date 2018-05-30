@@ -1,25 +1,97 @@
-/* main.css */
-html {
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-size: 13px;
+  color: #54667A;
+  font-family:'微软雅黑','Verdana', 'Microsoft YaHei', 'Simsun';
+  background-color: #fff;
+  line-height:24px;
+  -webkit-text-size-adjust:none
+}
+body,html,header,div,p,span,ul,li,ol,dl,dt,dd,input,button,textarea {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-
-*, *:before, *:after {
-  box-sizing: inherit;
+input,button {
+  border: none;
+  outline: none;
+  background: none;
 }
-
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+fieldset, img {
+  border:none;
 }
-
-h1, h2, h3, h4, h5, h6, p, ul {
-  margin: 0;
-  padding: 0;
+ol, ul,li {
+  list-style:none;
 }
-.test {
-  width: 100px;
-  height: 100px;
-  background-image: url(../img/1.png);
-  border-radius: 20px;
-  user-select: none;
+h1, h2, h3, h4, h5, h6{
+  font-size:100%;
+}
+em {
+  font-style:normal;
+}
+input, button, select, textarea {
+  outline:none;
+}
+textarea {
+  resize:none;
+}
+p{
+  text-align:justify;
+  text-justify:distribute;
+}
+input, select {
+  vertical-align:middle;
+}
+a, a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+  color: inherit;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ddd;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #ddd;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #ddd;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #ddd;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.text-hidden{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  white-space: nowrap;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  background:url(../img/bg.png) no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.bg-layer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, .3);
+}
+.header {
+  width: 100%;
+  padding: 15px 10px;
+  background-color: rgba(255,255,255,.5);
+  color: #fff;
+  font-size: 15px;
+}
+#root {
+  height: 100%;
 }

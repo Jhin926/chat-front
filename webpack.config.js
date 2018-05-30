@@ -15,10 +15,13 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     host: 'localhost',
-    port: 3000,
+    port: 8000,
     open: true,
     inline: true,
-    hot: true
+    hot: true,
+    proxy: {
+      "/login": "http://localhost:8080"
+    }
   },
   mode: 'development',
   plugins: [
