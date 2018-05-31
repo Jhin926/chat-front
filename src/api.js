@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://gyr.mrray.me/actionapi/weixin' : 'http://zmsz.leadyssg.com/actionapi/weixin'  // http://zmsz.leadyssg.com     http://www.soadna.com
-// axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'api';
 axios.interceptors.request.use(config => {
   return config
 }, error => {
@@ -9,12 +9,13 @@ axios.interceptors.request.use(config => {
 });
 
 axios.interceptors.response.use(response => {
-  if (response.data.data && 0 in response.data.data && response.config.get0 !== false) {
-    response.data.data = response.data.data[0]
+  /*if (response.data) {
+    response.data = response.data[0]
   }
   if (response.data.code === '10000') {
     return Promise.resolve(response.data)
-  }
+  }*/
+  return response.data;
 }, error => {
   return Promise.reject(error)
 });
@@ -29,4 +30,8 @@ export const getActivityDetail = id => {
 
 export const login = data => {
   return axios.post('login', data);
+};
+
+export const register = data => {
+  return axios.post('register', data);
 };

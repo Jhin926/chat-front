@@ -1,0 +1,93 @@
+body {
+  font-size: 14px;
+}
+.chats-layer {
+  display: flex;
+  flex-direction: column;
+}
+.header.chats-header {
+  padding: 10px;
+}
+.ipt-search {
+  background-color: rgba(0,0,0,.3);
+  border-radius: 3px;
+  height: 30px;
+  padding: 0 8px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 28px;
+}
+.btn-search {
+  width: 45px;
+  height: 29px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: rgba(0,0,0,.3);
+  font-size: 14px;
+  line-height: 28px;
+}
+.add-chat {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.add-chat::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  width: 16px;
+  height: 2px;
+  background-color: #fff;
+}
+.add-chat::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  width: 2px;
+  height: 16px;
+  background-color: #fff;
+}
+.chats-sort {
+  background-color: rgba(255,255,255,.6);
+  border-top: 1px solid rgba(255,255,255,.6);
+  border-bottom: 1px solid rgba(255,255,255,.6);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.sort-tip {
+  float: left;
+}
+.sort {
+  overflow: hidden;
+  width: 200px;
+  margin-left: 75px;
+}
+.sort li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.chat-list {
+  border-top: 1px solid rgba(255,255,255,.6);
+  border-bottom: 1px solid rgba(255,255,255,.6);
+  background-color: rgba(255,255,255,.3);
+  overflow-y: scroll;
+}
+.chat-list li {
+  color: #fff;
+  margin: 0 10px;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.chat-list li:last-child {
+  border-bottom: none;
+}
+.chat-list li a {
+  display: block;
+  padding: 10px 0;
+}

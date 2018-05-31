@@ -1,0 +1,34 @@
+.address {
+  font-size: 14px;
+}
+.bg-layer.address {
+  background-color: rgba(0,0,0, .5);
+}
+.sort {
+  overflow: hidden;
+  width: 300px;
+  margin-left: 60px;
+  background-color: #999999;
+}
+.sort li {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.city-list {
+  margin-top: 20px;
+  background-color: rgba(255,255,255,.3);
+}
+.city-list .choice-city {
+  padding: 10px 10px 0;
+  color: #ff7e27;
+  font-size: 16px;
+}
+.city-list li {
+  color: #fff;
+  margin: 0 15px;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.city-list li a {
+  display: block;
+  padding: 10px 0;
+}
