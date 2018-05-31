@@ -63,9 +63,7 @@ class Login extends Component {
             <Link to="/address">--以游客身份登录--</Link>
           </div>
         </div>
-        {
-          <Alert></Alert>
-        }
+        {/*<Alert></Alert>*/}
       </div>
     )
   }
