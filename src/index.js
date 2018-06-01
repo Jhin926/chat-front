@@ -8,7 +8,7 @@ import Chats from "./chats.jsx";
 import Chat from "./chat.jsx";
 import ChatAdd from "./chatAdd.jsx";
 
-import './css/index.css';
+ import './css/index.less';
 
 render((
   <Router>

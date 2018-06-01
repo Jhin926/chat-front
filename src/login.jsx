@@ -1,38 +1,57 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import {Alert} from "./layer.jsx";
+import Alert from "./alert/alert.jsx";
 import * as api from './api';
 
-import './css/login.css';
+import './css/login.less';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {phoneNo: '', pwd: ''};
+    this.state = {phoneNo: '', pwd: '', msg: ''};
 
     this.changeName = this.changeName.bind(this);
     this.changePwd = this.changePwd.bind(this);
     this.login = this.login.bind(this);
     this.register = this.register.bind(this);
+    this.changeMsg = this.changeMsg.bind(this);
   }
 
   login() {
-    api.login(this.state).then(data => {
+    const {phoneNo, pwd} = this.state;
+    if (phoneNo === '') {
+      this.setState({'msg': '用户名不能为空'});
+      return;
+    }
+    if (pwd === '') {
+      this.setState({'msg': '密码不能为空'});
+      return;
+    }
+    api.login({phoneNo, pwd}).then(data => {
       if (data.success) {
         this.props.history.push('/address');
       } else {
-        console.log(data);
+        this.setState({'msg': data.msg});
       }
     });
   }
 
   register() {
-    api.register(this.state).then(data => {
+    const {phoneNo, pwd} = this.state;
+    if (phoneNo === '') {
+      this.setState({'msg': '用户名不能为空'});
+      return;
+    }
+    if (pwd === '') {
+      this.setState({'msg': '密码不能为空'});
+      return;
+    }
+    api.register({phoneNo, pwd}).then(data => {
       if (data.success) {
         this.props.history.push('/address');
       } else {
-        console.log(data);
+        this.setState({'msg': data.msg});
       }
     });
   }
@@ -45,6 +64,9 @@ class Login extends Component {
     this.setState({pwd: event.target.value});
   }
 
+  changeMsg() {
+    this.setState({msg: ''});
+  }
   render() {
     return (
       <div className="input-con">
@@ -63,7 +85,8 @@ class Login extends Component {
             <Link to="/address">--以游客身份登录--</Link>
           </div>
         </div>
-        {/*<Alert></Alert>*/}
+        <Alert name={this.state.msg} onCloseAlert={this.changeMsg}>
+        </Alert>
       </div>
     )
   }

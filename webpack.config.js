@@ -40,6 +40,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.less$/,
+        use: ExtractTextWebpackPlugin.extract({
+            use: [{
+              loader: 'css-loader'
+            }, 'postcss-loader', 'less-loader'],
+            publicPath: '../'
+        })
+      },
+      {
         test: /\.css$/,
         use: ExtractTextWebpackPlugin.extract({
             use: ['css-loader', 'postcss-loader'],

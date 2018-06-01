@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import * as api from './api';
 
-import './css/chat.css';
+import './css/chat.less';
 
 class Chat extends Component {
   constructor(props) {

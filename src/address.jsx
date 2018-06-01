@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import * as api from './api';
 
-import './css/address.css';
+import './css/address.less';
 
 class Address extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Address extends Component {
     return (
       <div className="address">
         <header className="header" id="default">
-          当前定位城市：<span></span>
+          当前定位城市：<span style={{'color':'#ff7e27'}}>上海</span>
         </header>
         <section className="city-list">
           <header className="choice-city"> 选择其他城市:</header>
