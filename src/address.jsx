@@ -11,7 +11,7 @@ class Address extends Component {
 
   render() {
     return (
-      <div className="address">
+      <div className="bg-layer address">
         <header className="header" id="default">
           当前定位城市：<span style={{'color':'#ff7e27'}}>上海</span>
         </header>

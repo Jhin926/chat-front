@@ -8,18 +8,16 @@ import Chats from "./chats.jsx";
 import Chat from "./chat.jsx";
 import ChatAdd from "./chatAdd.jsx";
 
- import './css/index.less';
+import './css/index.less';
 
 render((
   <Router>
     <div className="bg">
-      <div className="bg-layer">
-        <Route exact path="/" component={Login}/>
-        <Route path="/address" component={Address}/>
-        <Route path="/chats" component={Chats}/>
-        <Route path="/chat" component={Chat}/>
-        <Route path="/chatadd" component={ChatAdd}/>
-      </div>
+      <Route exact path="/" component={Login}/>
+      <Route path="/address" component={Address}/>
+      <Route path="/chats" component={Chats}/>
+      <Route path="/chat" component={Chat}/>
+      <Route path="/chatadd" component={ChatAdd}/>
     </div>
   </Router>
 ), document.getElementById('root'));

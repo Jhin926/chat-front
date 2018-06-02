@@ -17,7 +17,7 @@ class Chats extends Component {
 
   render() {
     return (
-      <div className="chats-layer">
+      <div className="bg-layer chats-layer">
         <header className="header chats-header">
           <input className="ipt-search" type="text" placeholder="关键字搜索"/>
           <button className="btn-search">搜索</button>

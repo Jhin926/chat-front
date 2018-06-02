@@ -14,7 +14,7 @@ class Alert extends React.Component {
   }
 
   render() {
-    const {name, close} = this.props;
+    const {name} = this.props;
     let cmpt = null;
     if (name !== '') {
       cmpt = <div className="alert-layer">

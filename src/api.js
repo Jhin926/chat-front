@@ -35,3 +35,7 @@ export const login = data => {
 export const register = data => {
   return axios.post('register', data);
 };
+
+export const addChat = data => {
+  return axios.post('chatadd', data);
+};
