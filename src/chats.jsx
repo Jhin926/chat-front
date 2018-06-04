@@ -11,6 +11,10 @@ class Chats extends Component {
     this.addchat = this.addchat.bind(this);
   }
 
+  componentDidMount() {
+    document.title = '聊天室列表';
+  }
+
   addchat() {
     this.props.history.push('/chatadd');
   }

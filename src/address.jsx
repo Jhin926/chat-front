@@ -9,6 +9,10 @@ class Address extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    document.title = '选择地址';
+  }
+
   render() {
     return (
       <div className="bg-layer address">

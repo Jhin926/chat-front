@@ -20,6 +20,10 @@ class ChatAdd extends Component {
     this.closeAlert = this.closeAlert.bind(this);
   }
 
+  componentDidMount() {
+    document.title = '添加聊天室';
+  }
+
   changeTitle(event) {
     this.setState({title: event.target.value});
   }

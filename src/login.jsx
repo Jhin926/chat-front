@@ -18,6 +18,10 @@ class Login extends Component {
     this.closeAlert = this.closeAlert.bind(this);
   }
 
+  componentDidMount() {
+    document.title = '登录';
+  }
+
   login() {
     const {phoneNo, pwd} = this.state;
     if (phoneNo === '') {
