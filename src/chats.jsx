@@ -8,7 +8,10 @@ class Chats extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {'chatlist': []};
+
     this.addchat = this.addchat.bind(this);
+    this.changeList = this.changeList.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +20,10 @@ class Chats extends Component {
 
   addchat() {
     this.props.history.push('/chatadd');
+  }
+
+  changeList(data) {
+    this.setState({'chatlist', data})
   }
 
   render() {
