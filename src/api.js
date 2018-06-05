@@ -39,3 +39,7 @@ export const register = data => {
 export const addChat = data => {
   return axios.post('chatadd', data);
 };
+
+export const getChats = data => {
+  return axios.get('chatlist', {params: data});
+};
