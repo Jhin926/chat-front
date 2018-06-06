@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import * as api from './api';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 import './css/chats.less';
 
 class Chats extends Component {
   constructor(props) {
     super(props);
+
+    console.log(props);
 
     this.state = {'chatlist': [], 'key': '', 'sortBy': ''};
 
@@ -49,6 +52,8 @@ class Chats extends Component {
           <button onClick={this.getChats} className="btn-search">搜索</button>
           <a onClick={this.addchat} className="add-chat"></a>
         </header>
+        <Link to={`${this.props.match.url}/props-v-state`}>Props v. State</Link>
+        <Route path={`${this.props.match.url}/:topicId`} component={Topic} />
         <section className="chats-sort">
           <span className="sort-tip">排序方式：</span>
           <ul className="sort">
@@ -66,5 +71,11 @@ class Chats extends Component {
     )
   }
 }
+
+const Topic = ({ match }) => (
+  <div>
+    <h3>{match.params.topicId}</h3>
+  </div>
+);
 
 export default Chats;
