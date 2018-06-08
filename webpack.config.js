@@ -21,8 +21,8 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
     proxy: {
-      "/api": "http://106.12.40.68:8080"
-      // "/api": "http://localhost:8080"
+      // "/api": "http://106.12.40.68:8080"
+      "/api": "http://localhost:8080"
     }
   },
   mode: 'development',

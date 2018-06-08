@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
 import io from 'socket.io-client';
 
 import * as api from './api';
+import {getSer} from "./common";
 import MsgList from './msgList.jsx';
 
 import './css/chat.less';
 
-const socket = io('http://106.12.40.68:8080');
+const socket = io('http://localhost:8080');
 
 class Chat extends Component {
   constructor(props) {
     super(props);
+
+    this.chatName = getSer().title;
 
     this.state = {
       msgs: [
@@ -74,8 +76,8 @@ class Chat extends Component {
     return (
       <div className="bg-layer chat-layer">
         <header className="header chat-tit">
-          <span id="chat-back" className="chat-back"></span>
-          <span id="chat-title"></span>
+          <span className="chat-back"></span>
+          <span >{this.chatName}</span>
         </header>
         <MsgList msgList={this.state.msgs}></MsgList>
         <footer>

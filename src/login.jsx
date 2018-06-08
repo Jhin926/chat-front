@@ -60,6 +60,11 @@ class Login extends Component {
     });
   }
 
+  login1() {
+    // api.login1();
+    this.props.history.push('/address');
+  }
+
   changeName(event) {
     this.setState({phoneNo: event.target.value});
   }
@@ -88,7 +93,7 @@ class Login extends Component {
               <button className="btn" onClick={this.register}>注册</button>
             </div>
             <div className="visitor">
-              <Link to="/address">--以游客身份登录--</Link>
+              <span onClick={this.login1.bind(this)}>--以游客身份登录--</span>
             </div>
           </div>
           <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>

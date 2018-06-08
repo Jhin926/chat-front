@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://gyr.mrray.me/actionapi/weixin' : 'http://zmsz.leadyssg.com/actionapi/weixin'  // http://zmsz.leadyssg.com     http://www.soadna.com
-axios.defaults.baseURL = 'api';
+axios.defaults.baseURL = '/api';
 axios.interceptors.request.use(config => {
   return config
 }, error => {
@@ -43,3 +43,8 @@ export const addChat = data => {
 export const getChats = data => {
   return axios.get('chatlist', {params: data});
 };
+
+/*
+export const login1 = () => {
+  return axios.get('login1');
+};*/

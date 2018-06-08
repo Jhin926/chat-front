@@ -15,7 +15,7 @@ render((
     <div className="bg">
       <Route exact path="/" component={Login}/>
       <Route path="/address" component={Address}/>
-      <Route path="/chats" component={Chats}/>
+      <Route path="/chats/:id" component={Chats}/>
       <Route path="/chat" component={Chat}/>
       <Route path="/chatadd" component={ChatAdd}/>
     </div>
