@@ -6,8 +6,7 @@ import {getSer} from "./common";
 import MsgList from './msgList.jsx';
 
 import './css/chat.less';
-
-const socket = io('http://localhost:8080');
+let socket;
 
 class Chat extends Component {
   constructor(props) {
@@ -27,7 +26,8 @@ class Chat extends Component {
         {name: '木木', isMy: true, msg: '我还以为你们从来都不会选我呢'},
         {name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢'},
         {name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢'},
-      ]
+      ],
+      num: 0
     };
 
     this.sendMsg = this.sendMsg.bind(this);
@@ -36,6 +36,7 @@ class Chat extends Component {
   componentDidMount() {
     document.title = '聊天室标题';
 
+    socket = io('http://localhost:8080');
     socket.on('sys', data => {
       let msg = {
         isJoin: true,
@@ -55,29 +56,37 @@ class Chat extends Component {
         {msgs: this.state.msgs.concat(msg)}
       );
     });
+    socket.on('get num', data => {
+      this.setState({num: data.num});
+    });
   }
 
   sendMsg(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && event.target.value !== '') {
       let msg = {
         name: '我',
         msg: event.target.value,
         isMy: true
       };
-      this.setState(
-        {msgs: this.state.msgs.concat(msg)}
-        );
+      this.setState({msgs: this.state.msgs.concat(msg)});
       socket.emit('send msg', { params: event.target.value });
       event.target.value = '';
     }
+  }
+
+  goBack() {
+    this.props.history.goBack();
   }
 
   render() {
     return (
       <div className="bg-layer chat-layer">
         <header className="header chat-tit">
-          <span className="chat-back"></span>
-          <span >{this.chatName}</span>
+          <span className="chat-back" onClick={this.goBack.bind(this)}></span>
+          <div className="chat-name">
+            <p>{this.chatName}</p>
+            <p className="chat-num">在线人数({this.state.num})</p>
+          </div>
         </header>
         <MsgList msgList={this.state.msgs}></MsgList>
         <footer>

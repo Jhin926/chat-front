@@ -7,28 +7,39 @@
   }
 
   .chat-tit {
+    position: relative;
     height: 54px;
     text-align: center;
     color: #333;
     font-size: 16px;
 
     .chat-back {
-      float: left;
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 30px;
       height: 100%;
 
       &::before {
         content: '';
         position: absolute;
-        top: 5px;
-        left: 8px;
+        top: 21px;
+        left: 11px;
         display: inline-block;
         width: 10px;
         height: 10px;
         border-left: 1px solid #333;
         border-top: 1px solid #333;
         transform: rotateZ(-45deg);
+      }
+    }
+
+    .chat-name {
+      text-align: center;
+
+      .chat-num {
+        font-size: 8px;
+        line-height: 10px;
       }
     }
   }

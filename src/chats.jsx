@@ -4,6 +4,9 @@ import Alert from "./alert/alert.jsx";
 
 import './css/chats.less';
 
+let hotAsc = false;
+let numAsc = false;
+
 class Chats extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +33,15 @@ class Chats extends Component {
     const {sortBy, key} = this.state;
     const addr = this.addrId;
 
-    api.getChats({sortBy, key, addr}).then(data => {
+    let sortAsc;
+    if (sortBy === 'hot') {
+      sortAsc = hotAsc;
+      hotAsc = !hotAsc;
+    } else {
+      sortAsc = numAsc;
+      numAsc = !numAsc;
+    }
+    api.getChats({sortBy, sortAsc, key, addr}).then(data => {
       if (data.success) {
         this.setState({'chatlist': data.result});
       } else {
