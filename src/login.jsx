@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
 import Alert from "./alert/alert.jsx";
+import Loading from "./loading/loading.jsx";
 import * as api from './api';
 
 import './css/login.less';
@@ -23,6 +24,8 @@ class Login extends Component {
   }
 
   login() {
+    Loading();
+    return;
     const {phoneNo, pwd} = this.state;
     if (phoneNo === '') {
       this.setState({'msg': '用户名不能为空'});
