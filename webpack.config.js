@@ -5,6 +5,7 @@ let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 let cleanWebpackPlugin = require('clean-webpack-plugin');
 
 // 测试git回滚
+// 第二次commit
 module.exports = {
   entry: {
     index: './src/index.js'
