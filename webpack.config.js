@@ -4,6 +4,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 let cleanWebpackPlugin = require('clean-webpack-plugin');
 
+// 测试git回滚
 module.exports = {
   entry: {
     index: './src/index.js'
