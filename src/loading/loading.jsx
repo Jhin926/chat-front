@@ -4,11 +4,10 @@ import {render} from "react-dom";
 import './loading.less';
 
 function Loading() {
-  console.log(123);
   let test = React.createElement('div', {
     className: 'test'
   },
-    '啦啦啦啦，德玛西亚');
+    '加载中。。。');
   render(
     test,
     document.getElementById('root')

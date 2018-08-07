@@ -16,14 +16,14 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 8000,
     open: true,
     inline: true,
     hot: true,
     historyApiFallback: true,
     proxy: {
-      // "/api": "http://106.12.40.68:8080"
+      // "/api": "http://47.75.145.127:8080"
       "/api": "http://localhost:8080"
     }
   },

@@ -25,7 +25,6 @@ class Login extends Component {
 
   login() {
     Loading();
-    return;
     const {phoneNo, pwd} = this.state;
     if (phoneNo === '') {
       this.setState({'msg': '用户名不能为空'});
