@@ -4,8 +4,10 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 let cleanWebpackPlugin = require('clean-webpack-plugin');
 
-// 测试git回滚
-// 第二次commit
+let assetsPath = function (_path) {
+  const assetsSubDirectory = ''
+  return path.posix.join(assetsSubDirectory, _path)
+}
 module.exports = {
   entry: {
     index: './src/index.js'
@@ -17,7 +19,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     host: '0.0.0.0',
-    port: 80,
+    port: 8000,
     open: true,
     inline: true,
     hot: true,
@@ -60,12 +62,12 @@ module.exports = {
         // use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
-        test: /\.(jpe?g|png|gif)$/,
+        test: /\.(jpe?g|png|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
-              limit: 8192,
+              limit: 81920,
               outputPath: 'images/'
             }
           }
@@ -91,6 +93,14 @@ module.exports = {
         },
         include: /src/,
         exclude: /node_modules/
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: assetsPath('fonts/[name].[hash:7].[ext]')
+        }
       }
     ]
   }

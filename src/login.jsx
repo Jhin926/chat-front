@@ -10,7 +10,7 @@ import './css/login.less';
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {phoneNo: '', pwd: '', msg: ''};
+    this.state = {phoneNo: '', pwd: '', msg: '', isLoading: false};
 
     this.changeName = this.changeName.bind(this);
     this.changePwd = this.changePwd.bind(this);
@@ -24,7 +24,6 @@ class Login extends Component {
   }
 
   login() {
-    Loading();
     const {phoneNo, pwd} = this.state;
     if (phoneNo === '') {
       this.setState({'msg': '用户名不能为空'});
@@ -34,7 +33,9 @@ class Login extends Component {
       this.setState({'msg': '密码不能为空'});
       return;
     }
+    this.setState({isLoading: true})
     api.login({phoneNo, pwd}).then(data => {
+      this.setState({isLoading: false})
       if (data.success) {
         this.props.history.push('/address');
       } else {
@@ -63,7 +64,6 @@ class Login extends Component {
   }
 
   login1() {
-    // api.login1();
     this.props.history.push('/address');
   }
 
@@ -88,7 +88,7 @@ class Login extends Component {
               <input type="text" value={this.state.phoneNo} onChange={this.changeName} placeholder="请输入用户名/手机号码"/>
             </div>
             <div className="login-input">
-              <input type="password" value={this.state.pwd} onChange={this.changePwd} placeholder="请输入密码"/>
+              <input type="text" value={this.state.pwd} onChange={this.changePwd} placeholder="请输入密码"/>
             </div>
             <div className="btn-con">
               <button className="btn" onClick={this.login}>登录</button>
@@ -100,6 +100,7 @@ class Login extends Component {
           </div>
           <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>
           </Alert>
+          <Loading isLoading = {this.state.isLoading}></Loading>
         </div>
       </div>
     )

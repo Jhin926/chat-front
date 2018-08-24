@@ -1,18 +1,29 @@
-import React from 'react';
-import {render} from "react-dom";
+import React, { Component } from "react";
 
-import './loading.less';
+import "./loading.less";
 
-function Loading() {
-  let test = React.createElement('div', {
-    className: 'test'
-  },
-    '加载中。。。');
-  render(
-    test,
-    document.getElementById('root')
-  );
+class Loading extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.isLoading ? (
+          <div style={{opacity: 1}}>
+            <div className="weui-mask_transparent" />
+            <div className="weui-toast">
+              <i className="weui-loading weui-icon_toast" />
+              <p className="weui-toast__content">数据加载中</p>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    );
+  }
 }
-
 
 export default Loading;

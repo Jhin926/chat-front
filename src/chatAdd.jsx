@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 import Alert from "./alert/alert.jsx";
 import * as api from './api';
+import upload from './upload.jsx'
 
 import './css/chatadd.less';
 
