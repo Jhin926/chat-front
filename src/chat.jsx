@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 
-import * as api from "./api";
+// import * as api from "./api";
 import { getSer } from "./common";
 import MsgList from "./msgList.jsx";
 import Upload from "./upload.jsx";

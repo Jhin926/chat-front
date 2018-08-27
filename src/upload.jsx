@@ -24,7 +24,7 @@ class UploadImg extends Component {
     super(props);
     this.state = {
       loading: false,
-      imageUrl: ''
+      imageUrl: ""
     };
 
     this.handleChange = info => {
@@ -44,26 +44,18 @@ class UploadImg extends Component {
   }
 
   render() {
-    // const uploadButton = (
-    //   <div>
-    //     <Icon type={this.state.loading ? "loading" : "plus"} />
-    //     <div className="ant-upload-text">Upload</div>
-    //   </div>
-    // );
-    const imageUrl = this.state.imageUrl;
     return (
       <div>
         <Upload
-          name="avatar"
+          multiple
           listType="picture-card"
           className="avatar-uploader"
           showUploadList={false}
-          action="http://localhost:8080/api/upload"
+          action="/api/upload"
           beforeUpload={beforeUpload}
           onChange={this.handleChange}
         >
-        <i className="iconfont icon-image"></i>
-          {/* {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton} */}
+          <i className="iconfont icon-image" />
         </Upload>
       </div>
     );

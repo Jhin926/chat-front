@@ -87,7 +87,7 @@ class Chats extends Component {
         </section>
         <section className="chat-list">
           <ul id="chas-con">
-            {this.state.chatlist.map(item => (<li key={item._id} onClick={this.goChat.bind(this, item)}>{item.title}<span style={{marginLeft: '10px'}}>({item.numbers}人)</span></li>))}
+            {this.state.chatlist.map(item => (<li key={item._id} onClick={this.goChat.bind(this, item)}>{item.title}<span style={{marginLeft: '10px'}}>({item.numbers || 0}人)</span></li>))}
           </ul>
         </section>
         <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>
