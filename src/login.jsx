@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
-import Alert from "./alert/alert.jsx";
-import Loading from "./loading/loading.jsx";
+import Alert from './alert/alert.jsx';
+import Loading from './loading/loading.jsx';
 import * as api from './api';
 
 import './css/login.less';
@@ -81,26 +81,40 @@ class Login extends Component {
 
   render() {
     return (
-      <div className='bg-layer'>
+      <div className="bg-layer">
         <div className="input-con">
           <div className="login-con">
             <div className="login-input">
-              <input type="text" value={this.state.phoneNo} onChange={this.changeName} placeholder="请输入用户名/手机号码"/>
+              <input onChange={this.changeName}
+                  placeholder="请输入用户名/手机号码"
+                  type="text"
+                  value={this.state.phoneNo}
+              />
             </div>
             <div className="login-input">
-              <input type="text" value={this.state.pwd} onChange={this.changePwd} placeholder="请输入密码"/>
+              <input onChange={this.changePwd}
+                  placeholder="请输入密码"
+                  type="text"
+                  value={this.state.pwd}
+              />
             </div>
             <div className="btn-con">
-              <button className="btn" onClick={this.login}>登录</button>
-              <button className="btn" onClick={this.register}>注册</button>
+              <button className="btn"
+                  onClick={this.login}
+              >登录</button>
+              <button className="btn"
+                  onClick={this.register}
+              >注册</button>
             </div>
             <div className="visitor">
               <span onClick={this.login1.bind(this)}>--以游客身份登录--</span>
             </div>
           </div>
-          <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>
+          <Alert name={this.state.msg}
+              onCloseAlert={this.closeAlert}
+          >
           </Alert>
-          <Loading isLoading = {this.state.isLoading}></Loading>
+          <Loading isLoading={this.state.isLoading}></Loading>
         </div>
       </div>
     )

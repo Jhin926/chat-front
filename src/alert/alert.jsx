@@ -18,10 +18,12 @@ class Alert extends React.Component {
     let cmpt = null;
     if (name !== '') {
       cmpt = <div className="alert-layer">
-        <div className='alert-container'>
-          <header className='alert-tit'>提示</header>
-          <div className='alert-content'>{name}</div>
-          <footer className='alert-footer' onClick={this.close}>确定</footer>
+        <div className="alert-container">
+          <header className="alert-tit">提示</header>
+          <div className="alert-content">{name}</div>
+          <footer className="alert-footer"
+              onClick={this.close}
+          >确定</footer>
         </div>
       </div>;
     }

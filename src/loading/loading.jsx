@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import "./loading.less";
+import './loading.less';
 
 class Loading extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Loading extends Component {
             </div>
           </div>
         ) : (
-          ""
+          ''
         )}
       </div>
     );

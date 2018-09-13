@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as api from './api'
-import Alert from "./alert/alert.jsx";
+import Alert from './alert/alert.jsx';
 
 import './css/chats.less';
 
@@ -73,24 +73,41 @@ class Chats extends Component {
     return (
       <div className="bg-layer chats-layer">
         <header className="header chats-header">
-          <input className="ipt-search" type="text" value={this.state.key} onChange={this.changeKey} placeholder="关键字搜索"/>
-          <button onClick={this.getChats} className="btn-search">搜索</button>
-          <a onClick={this.addchat} className="add-chat"></a>
+          <input className="ipt-search"
+              onChange={this.changeKey}
+              placeholder="关键字搜索"
+              type="text"
+              value={this.state.key}
+          />
+          <button className="btn-search"
+              onClick={this.getChats}
+          >搜索</button>
+          <a className="add-chat"
+              onClick={this.addchat}
+          ></a>
         </header>
         <section className="chats-sort">
           <span className="sort-tip">排序方式：</span>
           <ul className="sort">
             {/*<li className="left" onClick={this.changeSort.bind(this, 'area')}>距离</li>*/}
-            <li className="left" onClick={this.changeSort.bind(this, 'hot')}>活跃度</li>
-            <li className="left" onClick={this.changeSort.bind(this, 'number')}>人数</li>
+            <li className="left"
+                onClick={this.changeSort.bind(this, 'hot')}
+            >活跃度</li>
+            <li className="left"
+                onClick={this.changeSort.bind(this, 'number')}
+            >人数</li>
           </ul>
         </section>
         <section className="chat-list">
           <ul id="chas-con">
-            {this.state.chatlist.map(item => (<li key={item._id} onClick={this.goChat.bind(this, item)}>{item.title}<span style={{marginLeft: '10px'}}>({item.numbers || 0}人)</span></li>))}
+            {this.state.chatlist.map(item => (<li key={item._id}
+                onClick={this.goChat.bind(this, item)}
+                                              >{item.title}<span style={{marginLeft: '10px'}}>({item.numbers || 0}人)</span></li>))}
           </ul>
         </section>
-        <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>
+        <Alert name={this.state.msg}
+            onCloseAlert={this.closeAlert}
+        >
         </Alert>
       </div>
     )

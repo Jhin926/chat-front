@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import io from "socket.io-client";
+import React, { Component } from 'react';
+import io from 'socket.io-client';
 
 // import * as api from "./api";
-import { getSer } from "./common";
-import MsgList from "./msgList.jsx";
-import Upload from "./upload.jsx";
+import { getSer } from './common';
+import MsgList from './msgList.jsx';
+import Upload from './upload.jsx';
 
-import "./css/chat.less";
-import "./font/iconfont.less";
+import './css/chat.less';
+import './font/iconfont.less';
 let socket;
 
 class Chat extends Component {
@@ -18,16 +18,16 @@ class Chat extends Component {
 
     this.state = {
       msgs: [
-        { name: "木木", isMy: true, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: true, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: true, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: true, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" },
-        { name: "木木", isMy: false, msg: "我还以为你们从来都不会选我呢" }
+        { name: '木木', isMy: true, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: true, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: true, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: true, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' },
+        { name: '木木', isMy: false, msg: '我还以为你们从来都不会选我呢' }
       ],
       num: 0
     };
@@ -36,17 +36,17 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    document.title = "聊天室标题";
+    document.title = '聊天室标题';
 
-    socket = io("http://localhost:8080");
-    socket.on("sys", data => {
+    socket = io('http://localhost:8080');
+    socket.on('sys', data => {
       let msg = {
         isJoin: true,
         userName: data.msg
       };
       this.setState({ msgs: this.state.msgs.concat(msg) });
     });
-    socket.on("get msg", data => {
+    socket.on('get msg', data => {
       let msg = {
         name: data.userName,
         msg: data.msg,
@@ -54,21 +54,21 @@ class Chat extends Component {
       };
       this.setState({ msgs: this.state.msgs.concat(msg) });
     });
-    socket.on("get num", data => {
+    socket.on('get num', data => {
       this.setState({ num: data.num });
     });
   }
 
   sendMsg(event) {
-    if (event.keyCode === 13 && event.target.value !== "") {
+    if (event.keyCode === 13 && event.target.value !== '') {
       let msg = {
-        name: "我",
+        name: '我',
         msg: event.target.value,
         isMy: true
       };
       this.setState({ msgs: this.state.msgs.concat(msg) });
-      socket.emit("send msg", { params: event.target.value });
-      event.target.value = "";
+      socket.emit('send msg', { params: event.target.value });
+      event.target.value = '';
     }
   }
 
@@ -80,7 +80,9 @@ class Chat extends Component {
     return (
       <div className="bg-layer chat-layer">
         <header className="header chat-tit">
-          <span className="chat-back" onClick={this.goBack.bind(this)} />
+          <span className="chat-back"
+              onClick={this.goBack.bind(this)}
+          />
           <div className="chat-name">
             <p>{this.chatName}</p>
             <p className="chat-num">
@@ -92,7 +94,9 @@ class Chat extends Component {
         <MsgList msgList={this.state.msgs} />
         <footer>
           <div className="chat-input">
-            <input type="text" onKeyDown={this.sendMsg} />
+            <input onKeyDown={this.sendMsg}
+                type="text"
+            />
           </div>
           <div className="send-btn">
             <span className="send-item">

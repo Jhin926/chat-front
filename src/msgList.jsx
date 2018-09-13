@@ -16,13 +16,19 @@ class MsgList extends React.Component {
   render() {
     const msgList = this.props.msgList;
     return (
-      <section id="chat-room" className="chat-room">
+      <section className="chat-room"
+          id="chat-room"
+      >
         {
           msgList.map((msg, idx) => {
             if (msg.isJoin) {
-              return (<div key={msg.userName + idx} className="join">--{msg.userName}--</div>)
+              return (<div className="join"
+                  key={msg.userName + idx}
+                      >--{msg.userName}--</div>)
             }
-            return (<div key={msg.msg + idx} className={`chat-bubble${msg.isMy ? ' myself' : ''}`}>
+            return (<div className={`chat-bubble${msg.isMy ? ' myself' : ''}`}
+                key={msg.msg + idx}
+                    >
               <div className="chat-head"></div>
               <div className="chat-cont">
                 <div className="chat-name">{msg.name}</div>

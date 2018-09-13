@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
-import * as api from './api';
+import {Link} from 'react-router-dom';
+// import * as api from './api';
 
 import './css/address.less';
 
@@ -16,7 +16,9 @@ class Address extends Component {
   render() {
     return (
       <div className="bg-layer address">
-        <header className="header" id="default">
+        <header className="header"
+            id="default"
+        >
           当前定位城市：<span style={{'color':'#ff7e27'}}>上海</span>
         </header>
         <section className="city-list">

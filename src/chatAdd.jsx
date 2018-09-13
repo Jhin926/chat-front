@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
-import Alert from "./alert/alert.jsx";
+import Alert from './alert/alert.jsx';
 import * as api from './api';
 import upload from './upload.jsx'
 
@@ -71,13 +71,23 @@ class ChatAdd extends Component {
           <li>
             <label htmlFor="title">聊天室标题：</label>
             <div className="input-chatadd">
-              <input id="title" value={this.state.title} onChange={this.changeTitle} className="input-tit" type="text" placeholder="请输入聊天室标题"/>
+              <input className="input-tit"
+                  id="title"
+                  onChange={this.changeTitle}
+                  placeholder="请输入聊天室标题"
+                  type="text"
+                  value={this.state.title}
+              />
             </div>
           </li>
           <li>
             <label htmlFor="addr">聊天室地址：</label>
             <div className="input-chatadd">
-              <select id="addr" value={this.state.addr} onChange={this.changeAddr} className="input-addr">
+              <select className="input-addr"
+                  id="addr"
+                  onChange={this.changeAddr}
+                  value={this.state.addr}
+              >
                 <option value="1">北京</option>
                 <option value="2">上海</option>
                 <option value="3">深圳</option>
@@ -90,14 +100,21 @@ class ChatAdd extends Component {
           <li>
             <label htmlFor="intro">聊天室介绍：</label>
             <div className="input-chatadd">
-              <textarea id="intro" value={this.state.intro} onChange={this.changeIntro} className="input-intro" rows="5"></textarea>
+              <textarea className="input-intro"
+                  id="intro"
+                  onChange={this.changeIntro}
+                  rows="5"
+                  value={this.state.intro}
+              ></textarea>
             </div>
           </li>
         </ul>
         <div className="input-sub">
           <button onClick={this.addChat}>提交</button>
         </div>
-        <Alert name={this.state.msg} onCloseAlert={this.closeAlert}>
+        <Alert name={this.state.msg}
+            onCloseAlert={this.closeAlert}
+        >
         </Alert>
       </div>
     )

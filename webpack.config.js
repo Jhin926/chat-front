@@ -16,6 +16,21 @@ module.exports = {
     filename: 'bundle.[hash:4].js',
     path: path.resolve('dist')
   },
+  mode: 'production',
+  optimization: {
+    // runtimeChunk: {
+    //   name: 'manifest'
+    // },
+    splitChunks: {
+      chunks: 'all',
+      minSize: 102400,
+      minChunks: 1,
+      // maxSize: 409600,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: true
+    }
+  },
   devServer: {
     contentBase: './dist',
     host: '0.0.0.0',
@@ -29,7 +44,7 @@ module.exports = {
       "/api": "http://localhost:8080"
     }
   },
-  mode: 'development',
+  // mode: 'development',
   plugins: [
     // 通过new一下这个类来使用插件
     new HtmlWebpackPlugin({
