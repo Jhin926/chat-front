@@ -44,6 +44,11 @@ export const getChats = data => {
   return axios.get('chatlist', {params: data});
 };
 
+export const test = data => {
+  console.log(data)
+  return axios.post('login', data);
+}
+
 /*
 export const login1 = () => {
   return axios.get('login1');
