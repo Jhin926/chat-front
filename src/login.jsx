@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 import Alert from './alert/alert.jsx';
 import Loading from './loading/loading.jsx';

@@ -64,6 +64,19 @@ module.exports = {
               name: assetsPath('./img/[name].[hash:7].[ext]'),
               publicPath: '../'
             }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: false, // webpack@2.x and newer
+              optipng: {
+                enabled: false
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              }
+            }
           }
         ]
       },
