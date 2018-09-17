@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import Alert from './alert/alert.jsx';
-import * as api from './api';
-import upload from './upload.jsx'
+import Alert from '../alert/alert.jsx';
+import * as api from '@/api/api.js';
+import upload from '../upload/upload.jsx'
 
-import './css/chatadd.less';
+import './chatadd.less';
 
 class ChatAdd extends Component {
   constructor(props) {

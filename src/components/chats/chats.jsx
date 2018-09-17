@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import * as api from './api'
-import Alert from './alert/alert.jsx';
+import * as api from '@/api/api.js'
+import Alert from '../alert/alert.jsx';
 
-import './css/chats.less';
+import './chats.less';
 
 let hotAsc = false;
 let numAsc = false;

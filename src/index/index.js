@@ -3,13 +3,13 @@ import {render} from 'react-dom';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 // import VConsole from 'vconsole/dist/vconsole.min.js'
 
-import Login from './login.jsx';
-import Address from './address.jsx';
-import Chats from './chats.jsx';
-import Chat from './chat.jsx';
-import ChatAdd from './chatAdd.jsx';
+import Login from '@/components/login/login.jsx';
+import Address from '@/components/address/address.jsx';
+import Chats from '@/components/chats/chats.jsx';
+import Chat from '@/components/chat/chat.jsx';
+import ChatAdd from '@/components/chatAdd/chatAdd.jsx';
 
-import './css/index.less';
+import './index.less';
 
 // new VConsole()
 

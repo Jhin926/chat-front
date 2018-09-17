@@ -9,7 +9,7 @@ let assetsPath = function (_path) {
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html',
       hash: true // 会在打包好的bundle.js后面加上hash串
     }),
 

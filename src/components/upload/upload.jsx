@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Upload, Icon, message } from 'antd';
 import io from 'socket.io-client';
 
-import {test} from './api';
+import {test} from '../../api/api';
 
 function getBase64(img, callback) {
   const reader = new FileReader();

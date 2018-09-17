@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 // import {Link} from 'react-router-dom';
 
-import Alert from './alert/alert.jsx';
-import Loading from './loading/loading.jsx';
-import * as api from './api';
+import Alert from '@/components/alert/alert.jsx';
+import Loading from '@/components/loading/loading.jsx';
+import * as api from '@/api/api.js';
 
-import './css/login.less';
+import './login.less';
 
 class Login extends Component {
   constructor(props) {

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import io from 'socket.io-client';
 
 // import * as api from "./api";
-import { getSer } from './common';
-import MsgList from './msgList.jsx';
-import Upload from './upload.jsx';
+import { getSer } from '@/common';
+import MsgList from '../msgList/msgList.jsx';
+import Upload from '../upload/upload.jsx';
 
-import './css/chat.less';
-import './font/iconfont.less';
+import './chat.less';
+import '../font/iconfont.less';
 let socket;
 
 class Chat extends Component {

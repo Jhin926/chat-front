@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 // import * as api from './api';
 
-import './css/address.less';
+import './address.less';
 
 class Address extends Component {
   constructor(props) {
