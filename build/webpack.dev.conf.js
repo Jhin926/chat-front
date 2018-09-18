@@ -6,13 +6,13 @@ const devConfig = merge(baseWebpackConfig, {
   devServer: {
     contentBase: '../dist',
     host: 'localhost',
-    port: 80,
+    port: 8080,
     open: false,
     inline: true,
     hot: true,
     historyApiFallback: true,
     proxy: {
-      // '/api': 'http://gw-test.zmlearn.com'
+      '/api': 'http://localhost'
     },
     disableHostCheck: true
   },

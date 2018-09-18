@@ -38,7 +38,7 @@ class Chat extends Component {
   componentDidMount() {
     document.title = '聊天室标题';
 
-    socket = io('http://localhost:8080');
+    socket = io('http://localhost:80');
     socket.on('sys', data => {
       let msg = {
         isJoin: true,

@@ -49,6 +49,9 @@ export const test = data => {
   return axios.post('login', data);
 }
 
+export const upload = data => {
+  return axios.post('upload', data, {headers:{'Content-Type':'multipart/form-data'}})
+}
 /*
 export const login1 = () => {
   return axios.get('login1');
