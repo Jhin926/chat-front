@@ -69,14 +69,7 @@ class Chat extends Component {
   }
 
   sendFile(msgObj) {
-    let msg = {
-      name: '我',
-      msg: '222',
-      isMy: true
-    };
-    console.log(this)
-    // this.setState({ msgs: this.state.msgs.concat(msg) });
-    // this.setState({ msgs: this.state.msgs.concat({ ...msgObj, isMy: true, name: '我' }) });
+    this.setState({ msgs: this.state.msgs.concat({ ...msgObj, isMy: true, name: '我' }) });
     socket.emit('send msg', msgObj);
   }
 
@@ -105,7 +98,7 @@ class Chat extends Component {
           </div>
           <div className="send-btn">
             <span className="send-item">
-              <Upload sendFile1={this.sendFile} />
+              <Upload sendFile1={this.sendFile.bind(this)} />
             </span>
             <span className="send-item">
               <i className="iconfont icon-video" />
