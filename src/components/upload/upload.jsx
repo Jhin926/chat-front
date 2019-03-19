@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Upload, Icon, message } from 'antd';
+import { Upload } from 'antd';
 
 import {upload} from '@/api/api.js';
 
@@ -38,27 +38,31 @@ class UploadImg extends Component {
     };
   }
 
+
   render() {
     const props = {
       beforeUpload: file => {
-        console.log(file)
-        const isJPG = file.type === 'image/jpeg';
-        if (!isJPG) {
-          message.error('You can only upload JPG file!');
-        }
+        // const isJPG = file.type === 'image/jpeg';
+        // if (!isJPG) {
+        //   message.error('You can only upload JPG file!');
+        //   return
+        // }
         // const isLt2M = file.size / 1024 / 1024 < 2;
         // if (!isLt2M) {
         //   message.error('Image must smaller than 2MB!');
+        //   return
         // }
         this.setState(({ fileList }) => ({
           fileList: [...fileList, file]
         }));
         const formData = new FormData();
-        formData.append('ymb', 1234)
+        // formData.append('ymb', 1234)
         formData.append('file', file);
 
         upload(formData).then(data => {
-          console.log(data)
+          if (data.code === 0) {
+            this.props.sendFile1({ msg: '', url: data.filePath, type: 'img' });
+          }
         })
         return false;
       }

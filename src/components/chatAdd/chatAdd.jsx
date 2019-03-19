@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 import Alert from '../alert/alert.jsx';
 import * as api from '@/api/api.js';
-import upload from '../upload/upload.jsx'
 
 import './chatadd.less';
 

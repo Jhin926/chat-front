@@ -7,7 +7,7 @@ const devConfig = merge(baseWebpackConfig, {
     contentBase: '../dist',
     host: 'localhost',
     port: 8080,
-    open: false,
+    open: true,
     inline: true,
     hot: true,
     historyApiFallback: true,

@@ -6,11 +6,15 @@ class MsgList extends React.Component {
   }
 
   componentDidMount() {
-    document.getElementById('chat-room').scrollTop = document.getElementById('chat-room').scrollHeight;
+    document.getElementById('chat-room').scrollTop = document.getElementById(
+      'chat-room'
+    ).scrollHeight;
   }
 
   componentDidUpdate() {
-    document.getElementById('chat-room').scrollTop = document.getElementById('chat-room').scrollHeight;
+    document.getElementById('chat-room').scrollTop = document.getElementById(
+      'chat-room'
+    ).scrollHeight;
   }
 
   render() {
@@ -19,28 +23,49 @@ class MsgList extends React.Component {
       <section className="chat-room"
           id="chat-room"
       >
-        {
-          msgList.map((msg, idx) => {
-            if (msg.isJoin) {
-              return (<div className="join"
+        {msgList.map((msg, idx) => {
+          if (msg.isJoin) {
+            return (
+              <div className="join"
                   key={msg.userName + idx}
-                      >--{msg.userName}--</div>)
-            }
-            return (<div className={`chat-bubble${msg.isMy ? ' myself' : ''}`}
+              >
+                --
+                {msg.userName}
+                --
+              </div>
+            );
+          }
+          return (
+            <div
+                className={`chat-bubble${msg.isMy ? ' myself' : ''}`}
                 key={msg.msg + idx}
-                    >
-              <div className="chat-head"></div>
+            >
+              <div className="chat-head" />
               <div className="chat-cont">
-                <div className="chat-name">{msg.name}</div>
+                <div className="chat-name">
+                  {msg.name}{' '}
+                  <span
+                      className="send-item iconfont icon-location"
+                      style={{ fontSize: '14px' }}
+                  />
+                  70km
+                </div>
                 <div className="chat-msg">
-                  {msg.msg}
+                  <span>{msg.msg}</span>
+                  {
+                    msg.type ==='img'?
+                    <img height="100%"
+                        src={msg.url}
+                        width="100%"
+                    />:''
+                  }
                 </div>
               </div>
-            </div>)
-          })
-        }
+            </div>
+          );
+        })}
       </section>
-    )
+    );
   }
 }
 

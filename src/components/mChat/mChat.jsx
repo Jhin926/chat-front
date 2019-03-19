@@ -68,18 +68,6 @@ class Chat extends Component {
     }
   }
 
-  sendFile(msgObj) {
-    let msg = {
-      name: '我',
-      msg: '222',
-      isMy: true
-    };
-    console.log(this)
-    // this.setState({ msgs: this.state.msgs.concat(msg) });
-    // this.setState({ msgs: this.state.msgs.concat({ ...msgObj, isMy: true, name: '我' }) });
-    socket.emit('send msg', msgObj);
-  }
-
 
   closeAlert() {
     this.setState({tip: ''});
@@ -90,7 +78,7 @@ class Chat extends Component {
       <div className="bg-layer chat-layer">
         <header className="header chat-tit">
           <div className="chat-name">
-            <p>{this.chatName}</p>
+            <p>公共聊天室</p>
             <p className="chat-num">
               在线人数({this.state.num})
             </p>
@@ -105,7 +93,7 @@ class Chat extends Component {
           </div>
           <div className="send-btn">
             <span className="send-item">
-              <Upload sendFile1={this.sendFile} />
+              <Upload />
             </span>
             <span className="send-item">
               <i className="iconfont icon-video" />
